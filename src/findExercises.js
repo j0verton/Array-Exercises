@@ -50,7 +50,7 @@ export const getStudentByName = fullName => {
 // Ex: getInstructorOfStudent(4)      // returns Brenda Long
 
 export const getInstructorOfStudent = studentId => {
-    const student = students.find(student => student.id === id)
+    const student = students.find(student => student.id === studentId)
     const instructorId = student.instructorId
     return instructors.find(instructor =>instructor.id === instructorId)
 }
