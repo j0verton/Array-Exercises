@@ -62,5 +62,7 @@ export const getInstructorOfStudent = studentId => {
 // HINT: You may not need the `find` method for this. This is one of the few cases where a `for` loop might be appropriate
 
 export const getStudentWithMostLangs = () => {
-
+    const languageNumberArray = students.map(student => student.languages.length)
+    const mostlanguages = languageNumberArray.sort().pop()
+    return students.find(student=> student.languages.length == mostlanguages )
 }
