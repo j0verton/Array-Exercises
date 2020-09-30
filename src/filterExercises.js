@@ -8,7 +8,7 @@ const instructors = useInstructors();
 // It should return an array of just the students who are in that cohort
 
 export const getStudentsInCohort = cohort => {
-    students.filter(student => student.cohort === cohort)
+    return students.filter(student => student.cohort === cohort)
  }
 
 // Export a function called getFullTimeStudents
@@ -16,15 +16,15 @@ export const getStudentsInCohort = cohort => {
 // It should return an array of only the full time students
 
 export const getFullTimeStudents = () => {
-    students.filter(student => student.fullTime)
+    return students.filter(student => student.fullTime)
 }
 
 // Export a function called getStudentsByInstructorId
 // It should accept one integer parameter name `instructorId`
 // It should return an array of students with that instructor
 
-export const getStudentByInstructorId = (instructorId) => {
-    students.filter(student => student.instructorId === instructorId)
+export const getStudentsByInstructorId = (instructorId) => {
+    return students.filter(student => student.instructorId === instructorId)
 }
 
 // Export a function called getPolyglotStudents
@@ -32,16 +32,29 @@ export const getStudentByInstructorId = (instructorId) => {
 // It should return an array of students who know as many (or more) languages than `languageCount`
 // Ex: If the number 2 is passed to the function, only the students who know 2 or more languages should be returned
 
-
+export const getPolyglotStudents = languageCount => {
+    return students.filter(student => student.languages.length >= languageCount)
+}
 
 // Export a function called getAvailableInstructors
 // It should not accept any parameters
 // It should return an array of instructors that don't have any students
 
+export const getAvailableInstructors = () => {
+    const studentInstructors =students.map(student => student.instructorId)
+    return instructors.filter(instructor => !studentInstructors.includes(instructor.id))
+}
+
 // Export a function called getStudentsByLanguage
 // It should accept one string parameter named `language`
 // It should return an array of students who know the given language
 // HINT: In addition to the `filter` method, you might also look up the `some` method
+
+export const getStudentsByLanguage = language => { 
+    return students.filter(student => {
+        return student.languages.includes(language)
+    })
+}
 
 /******** ADVANCED CHALLENGE ********/
 /******** Only do this if all other tests are passing ****/
