@@ -28,7 +28,7 @@ export const getInstructorById = id => {
 // Ex: getStudentByName("sMiTh")
 
 export const getStudentByLastName = lastName => {
-    return students.find(student => student.lastName === lastName)
+    return students.find(student => student.lastName.toUpperCase() === lastName.toUpperCase())
 }
 
 // Export a function called getStudentByName
