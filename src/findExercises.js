@@ -39,7 +39,7 @@ export const getStudentByLastName = lastName => {
 
 export const getStudentByName = fullName => {
     return students.find(student => {
-        return fullName.includes(student.lastName) && fullName.includes(student.firstName)
+        return fullName.toUpperCase().includes(student.lastName.toUpperCase()) && fullName.toUpperCase().includes(student.firstName.toUpperCase())
 
     })
 }
