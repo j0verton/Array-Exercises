@@ -66,11 +66,11 @@ export const getStudentsByLanguage = language => {
 // Ex: getStudentsByLanguages(["Javascript", "C#"])
 
 export const getStudentsByLanguages = languages => {    
-    let studentsArray = []
+    let studentsArray = students
     for (let i=0; i<languages.length; i++){
-      studentsArray = students.filter(student => {
+      studentsArray = studentsArray.filter(student => {
             return student.languages.includes(languages[i])
         })  
-        } 
-        console.log(studentsArray)   
+    } 
+    return studentsArray 
   }
